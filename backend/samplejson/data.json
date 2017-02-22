@@ -1,0 +1,7 @@
+{
+    "Code": "#include <stdio.h>\nint main(){\nint i = 0;\nscanf(\"%d\", &i);\nprintf(\"%d\\n\", i*2);\nreturn 0;\n}\n",
+    "Language": "clang",
+    "Stdin": "10\n",
+    "Stdout": "",
+    "Stderr": ""
+}
