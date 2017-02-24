@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import AceEditor from 'react-ace';
-import { Button, Menu, Segment, Grid, Icon, Message, Dropdown, Form, TextArea } from 'semantic-ui-react';
+import { Header, Modal, Button, Menu, Segment, Grid, Icon, Message, Dropdown, Form, TextArea } from 'semantic-ui-react';
 
 import 'brace/mode/c_cpp';
 import 'brace/theme/monokai';
+import 'brace/keybinding/emacs';
+import 'brace/keybinding/vim';
 
 // import { languageOptions } from '../common/language.js'
 const languageOptions = [
     { key: 'clang', value: 'clang', text: 'clang' },
     { key: 'gcc', value: 'gcc', text: 'gcc' }
+]
+const KeyBindingOptions = [
+    { key: 'vim', value: 'vim', text: 'vim' },
+    { key: 'emacs', value: 'emacs', text: 'emacs' }
 ]
 
 class App extends Component {
@@ -24,6 +30,7 @@ class App extends Component {
         code: "",
         activeItem: 'home',
         stdItem: 'stdout',
+        keyBinding: '',
     };
 
     this.compile = this.compile.bind(this);
@@ -39,6 +46,7 @@ class App extends Component {
   getStdin = (e, data) => this.setState({stdin: data.value})
 
   changeLanguage = (e, data) => this.setState({language: data.value})
+  changeKeyBinding = (e, data) => this.setState({keyBinding: data.value})
 
   compile() {
     axios.post('http://localhost:8080/api/compiler/', {
@@ -77,6 +85,21 @@ class App extends Component {
           <Segment inverted>
               <Menu inverted pointing secondary>
                   <Menu.Item name='home' active={activeItem === 'home'} onClick={this.handleItemClick} />
+                  <Menu.Menu position='right'>
+                      <Dropdown item icon='wrench' simple>
+                          <Dropdown.Menu>
+                              <Modal trigger={<Dropdown.Item>Config</Dropdown.Item>}>
+                                  <Modal.Header>Editor</Modal.Header>
+                                  <Modal.Content>
+                                      <Modal.Description>
+                                          <Header>Keybinding</Header>
+                                          <Dropdown placeholder='vim' search selection options={KeyBindingOptions} onChange={this.changeKeyBinding} />
+                                      </Modal.Description>
+                                  </Modal.Content>
+                              </Modal>
+                          </Dropdown.Menu>
+                      </Dropdown>
+                  </Menu.Menu>
               </Menu>
           </Segment>
           <Grid padded>
@@ -99,6 +122,7 @@ class App extends Component {
                           width="800"
                           onChange={this._onChange.bind(this)}
                           value={this.state.code}
+                          keyboardHandler={this.state.keyBinding}
                       />
                   </Grid.Column>
                   <Grid.Column width={8}>
@@ -106,7 +130,7 @@ class App extends Component {
                           <Menu.Item name='stdout' active={stdItem === 'stdout'} onClick={this.handleStdItemClick} />
                           <Menu.Item name='stdin' active={stdItem === 'stdin'} onClick={this.handleStdItemClick} />
                       </Menu>
-                        {stdfield}
+                      {stdfield}
                   </Grid.Column>
               </Grid.Row>
           </Grid>
