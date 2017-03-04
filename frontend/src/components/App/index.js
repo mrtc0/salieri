@@ -3,8 +3,13 @@ import axios from 'axios';
 import AceEditor from 'react-ace';
 import { Header, Modal, Button, Menu, Segment, Grid, Icon, Message, Dropdown, Form, TextArea } from 'semantic-ui-react';
 
+// import language mode
 import 'brace/mode/c_cpp';
+
+// import editor theme
 import 'brace/theme/monokai';
+
+// import keybinding
 import 'brace/keybinding/emacs';
 import 'brace/keybinding/vim';
 
@@ -46,7 +51,11 @@ class App extends Component {
   getStdin = (e, data) => this.setState({stdin: data.value})
 
   changeLanguage = (e, data) => this.setState({language: data.value})
-  changeKeyBinding = (e, data) => this.setState({keyBinding: data.value})
+
+  changeKeyBinding = (e, data) => {
+    this.setState({keyBinding: data.value})
+    localStorage.setItem('keybinding', data.value)
+  }
 
   compile() {
     axios.post('http://localhost:8080/api/compiler/', {
@@ -68,6 +77,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    if (localStorage.getItem('keybinding')) {
+        this.setState({keyBinding: localStorage.getItem('keybinding')})
+    }
   }
 
 
@@ -88,11 +100,11 @@ class App extends Component {
                   <Menu.Menu position='right'>
                       <Dropdown item icon='wrench' simple>
                           <Dropdown.Menu>
-                              <Modal trigger={<Dropdown.Item>Config</Dropdown.Item>}>
-                                  <Modal.Header>Editor</Modal.Header>
+                              <Modal trigger={<Dropdown.Item>Settings</Dropdown.Item>}>
+                                  <Modal.Header>Editor Settings</Modal.Header>
                                   <Modal.Content>
                                       <Modal.Description>
-                                          <Header>Keybinding</Header>
+                                          <Header>KeyBinding</Header>
                                           <Dropdown placeholder='vim' search selection options={KeyBindingOptions} onChange={this.changeKeyBinding} />
                                       </Modal.Description>
                                   </Modal.Content>
