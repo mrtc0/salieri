@@ -105,7 +105,7 @@ class App extends Component {
           <Grid padded>
               <Grid.Row>
                   <Grid.Column width={8}>
-                      <Dropdown placeholder='State' search selection options={languageOptions} onChange={this.changeLanguage} />
+                      <Dropdown search selection options={languageOptions} onChange={this.changeLanguage} />
                       <Button primary onClick={this.compile}>
                           <Icon name="play" />
                           RUN
