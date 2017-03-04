@@ -20,7 +20,8 @@ const languageOptions = [
 ]
 const KeyBindingOptions = [
     { key: 'vim', value: 'vim', text: 'vim' },
-    { key: 'emacs', value: 'emacs', text: 'emacs' }
+    { key: 'emacs', value: 'emacs', text: 'emacs' },
+    { key: 'None', value: '', text: 'None' }
 ]
 
 class App extends Component {

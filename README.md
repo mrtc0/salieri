@@ -6,6 +6,8 @@
 
 The service receives a some programs, compiles and run the program inside LXC Container, then return the output.
 
+![Salieri Image](./screenshot/top.png)
+
 # Setup
 
 ## LXD
@@ -31,6 +33,5 @@ $ lxc exec <ContainerName> /bin/bash
 
 # Issue
 
-- [] Supoort other languages
-- [] Support Vim and Emacs Keybind and Some theme
-- [] Logging to DB
+- Supoort other languages
+- Logging to DB
