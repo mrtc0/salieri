@@ -10,9 +10,10 @@ The service receives a some programs, compiles and run the program inside LXC Co
 
 # Setup
 
-## LXD
+## LXD(@ubuntu)
 
 ```bash
+$ sudo add-apt-repository ppa:ubuntu-lxc/lxd-git-master && sudo apt-get update
 $ sudo apt-get install lxd
 $ newgrp lxd
 $ sudo lxd init
