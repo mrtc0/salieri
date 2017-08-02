@@ -1,0 +1,68 @@
+hash: 7099ea7d24d37dcd22bee1b1bceb6eec999f7383e35e5bfa943c7fe5a72cc6e7
+updated: 2017-08-02T13:56:38.24654958+09:00
+imports:
+- name: github.com/ant0ine/go-json-rest
+  version: ce4b71cdf7ba29ef443d704bd923f5bbf281ee30
+  subpackages:
+  - rest
+  - rest/test
+  - rest/trie
+- name: github.com/fsnotify/fsnotify
+  version: 4da3e2cfbabc9f751898f250b49f2439785783a1
+- name: github.com/gorilla/websocket
+  version: a69d9f6de432e2c6b296a947d8a5ee88f68522cf
+- name: github.com/hashicorp/hcl
+  version: 392dba7d905ed5d04a5794ba89f558b27e2ba1ca
+  subpackages:
+  - hcl/ast
+  - hcl/parser
+  - hcl/scanner
+  - hcl/strconv
+  - hcl/token
+  - json/parser
+  - json/scanner
+  - json/token
+- name: github.com/lxc/lxd
+  version: c2a1d6575448402c634e5e2cff8cb31eb6731b1e
+  subpackages:
+  - shared
+  - shared/api
+  - shared/ioprogress
+  - shared/logger
+  - shared/osarch
+  - shared/simplestreams
+  - shared/version
+- name: github.com/magiconair/properties
+  version: be5ece7dd465ab0765a9682137865547526d1dfb
+- name: github.com/mitchellh/mapstructure
+  version: d0303fe809921458f417bcf828397a65db30a7e4
+- name: github.com/mrtc0/lxdexec
+  version: a146bddc2f88af412392e2ba4947e2ee31985390
+  subpackages:
+  - unixsocket
+- name: github.com/pelletier/go-toml
+  version: 69d355db5304c0f7f809a2edc054553e7142f016
+- name: github.com/spf13/afero
+  version: 9be650865eab0c12963d8753212f4f9c66cdcf12
+  subpackages:
+  - mem
+- name: github.com/spf13/cast
+  version: acbeb36b902d72a7a4c18e8f3241075e7ab763e4
+- name: github.com/spf13/jwalterweatherman
+  version: 0efa5202c04663c757d84f90f5219c1250baf94f
+- name: github.com/spf13/pflag
+  version: e57e3eeb33f795204c1ca35f56c44f83227c6e66
+- name: github.com/spf13/viper
+  version: 25b30aa063fc18e48662b86996252eabdcf2f0c7
+- name: golang.org/x/sys
+  version: fb4cac33e3196ff7f507ab9b2d2a44b0142f5b5a
+  subpackages:
+  - unix
+- name: golang.org/x/text
+  version: 3bd178b88a8180be2df394a1fbb81313916f0e7b
+  subpackages:
+  - transform
+  - unicode/norm
+- name: gopkg.in/yaml.v2
+  version: cd8b52f8269e0feb286dfeef29f8fe4d5b397e0b
+testImports: []
