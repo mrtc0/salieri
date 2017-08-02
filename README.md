@@ -22,6 +22,13 @@ $ lxc exec <ContainerName> /bin/bash
 (Container)$ apt-get install gcc clang build-essential
 ```
 
+## Salieri
+
+```
+$ cd backend/
+(backend) $ glide install
+```
+
 # Play
 
 ```
